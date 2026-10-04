@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Meridian Motors</title>
+  <style>
+    @font-face {
+      font-family: "LibSerif";
+      src: url("./LiberationSerif-Regular.ttf") format("truetype");
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: "LibSans";
+      src: url("./LiberationSansNarrow-Regular.ttf") format("truetype");
+      font-weight: 400;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0B1A2B;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background:
+        radial-gradient(ellipse 68% 52% at 70% 80%, rgba(37, 99, 235, 0.26) 0%, transparent 58%),
+        radial-gradient(ellipse 48% 36% at 50% 36%, rgba(244, 246, 248, 0.055) 0%, transparent 70%),
+        radial-gradient(ellipse 92% 78% at 50% 100%, rgba(0, 0, 0, 0.58) 0%, transparent 62%),
+        linear-gradient(180deg, #12253a 0%, #0B1A2B 44%, #070f18 100%);
+      color: #F4F6F8;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7, 12, 20, 0.58) 0%, transparent 16%, transparent 84%, rgba(7, 12, 20, 0.58) 100%),
+        linear-gradient(180deg, rgba(7, 12, 20, 0.3) 0%, transparent 20%, transparent 78%, rgba(7, 12, 20, 0.52) 100%);
+      pointer-events: none;
+    }
+    .meridian {
+      position: absolute;
+      left: 50%;
+      top: 40px;
+      bottom: 40px;
+      width: 1px;
+      transform: translateX(-0.5px);
+      background: linear-gradient(180deg, transparent, rgba(244, 246, 248, 0.12) 16%, rgba(244, 246, 248, 0.12) 84%, transparent);
+    }
+    .lockup {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      transform: translate(-50%, -62%);
+      text-align: center;
+      width: 780px;
+    }
+    .word {
+      display: block;
+      font-family: "LibSerif", "Liberation Serif", "Times New Roman", serif;
+      font-weight: 400;
+      color: #F4F6F8;
+      letter-spacing: 0.26em;
+      line-height: 0.92;
+      text-indent: 0.26em;
+    }
+    .word-a { font-size: 74px; }
+    .word-b { font-size: 74px; margin-top: 4px; }
+    .rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 24px auto 0;
+    }
+    .rule span {
+      display: block;
+      width: 78px;
+      height: 1px;
+      background: #2563EB;
+    }
+    .tag {
+      margin-top: 16px;
+      font-family: "LibSans", "Liberation Sans Narrow", sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.68em;
+      text-indent: 0.68em;
+      color: rgba(244, 246, 248, 0.78);
+    }
+    .car {
+      position: absolute;
+      left: 50%;
+      bottom: 34px;
+      transform: translateX(-50%);
+      width: 880px;
+      height: 200px;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="meridian"></div>
+    <div class="lockup">
+      <span class="word word-a">MERIDIAN</span>
+      <span class="word word-b">MOTORS</span>
+      <div class="rule" aria-hidden="true"><span></span><span></span></div>
+      <div class="tag">ATELIER</div>
+    </div>
+    <svg class="car" viewBox="0 0 880 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="body" x1="60" y1="30" x2="820" y2="180" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#163047"/>
+          <stop offset="0.5" stop-color="#1c3a56"/>
+          <stop offset="1" stop-color="#101f30"/>
+        </linearGradient>
+        <linearGradient id="glass" x1="250" y1="30" x2="600" y2="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#c5d4e2" stop-opacity="0.32"/>
+          <stop offset="1" stop-color="#1a2d42" stop-opacity="0.5"/>
+        </linearGradient>
+        <radialGradient id="lamp" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(792 128) scale(34 14)">
+          <stop stop-color="#bfdbfe"/>
+          <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow" x="-40%" y="-80%" width="180%" height="260%">
+          <feGaussianBlur stdDeviation="7" result="b"/>
+          <feMerge>
+            <feMergeNode in="b"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <ellipse cx="440" cy="182" rx="360" ry="9" fill="#2563EB" opacity="0.18"/>
+      <ellipse cx="440" cy="184" rx="310" ry="5" fill="#111827" opacity="0.5"/>
+      <path fill="url(#body)" d="M108 154c2-14 14-24 38-28l46-8c22-40 68-68 142-76 86-8 198-8 286 4 70 10 122 36 150 64l78 20c22 6 40 14 46 28 4 10 2 16-8 20l-40 6c-10 1-18 22-48 22s-40-21-50-22H262c-10 1-20 22-50 22s-38-21-48-22H128c-14 0-22-6-20-20z"/>
+      <path d="M176 116c48-44 130-68 258-70 122-2 228 16 302 52" stroke="#F4F6F8" stroke-opacity="0.2" stroke-width="1.15"/>
+      <path d="M154 134h150c46-4 108-6 176-2 92 4 176 18 274 42" stroke="#2563EB" stroke-opacity="0.9" stroke-width="1.5"/>
+      <path fill="url(#glass)" d="M268 124l36-54c58-12 154-16 238-8l108 48-16 12c-72-8-188-10-280 0l-22 2z"/>
+      <path d="M392 72l16 52M522 68l6 54" stroke="#0B1A2B" stroke-opacity="0.4" stroke-width="2"/>
+      <ellipse cx="792" cy="128" rx="30" ry="9" fill="url(#lamp)" filter="url(#glow)"/>
+      <rect x="778" y="124" width="30" height="6" rx="3" fill="#dbeafe"/>
+      <g>
+        <circle cx="212" cy="162" r="36" fill="#111827"/>
+        <circle cx="212" cy="162" r="22" fill="#0B1A2B" stroke="#c5d0dc" stroke-width="2"/>
+        <circle cx="212" cy="162" r="5.5" fill="#2563EB"/>
+        <circle cx="668" cy="162" r="36" fill="#111827"/>
+        <circle cx="668" cy="162" r="22" fill="#0B1A2B" stroke="#c5d0dc" stroke-width="2"/>
+        <circle cx="668" cy="162" r="5.5" fill="#2563EB"/>
+      </g>
+    </svg>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# installed packages (anyone can recreate these with npm install)
+node_modules/
+backend/.venv/
+.venv/
+__pycache__/
+*.pyc
+
+# private data: customer inquiries, your cars and uploaded photos, passwords
+/data/
+/backend/data/
+.env
+.env.*
+
+# build output and logs
+.output/
+.vercel/
+dist/
+*.log
+
+# builder tool leftovers (not part of the website)
+/screenshots/
+/attachments/
+/artifacts/

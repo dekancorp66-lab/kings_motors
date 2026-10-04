@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f3f0e4;
+  --color-surface: #fffcf4;
+  --color-ink: #122018;
+  --color-muted: #5c6b60;
+  --color-subtle: #8a978c;
+  --color-line: #e4ddc8;
+  --color-accent: #c9a227;
+  --color-accent-hover: #b08912;
+  --color-navy: #0d2e24;
+  --color-navy-mid: #164536;
+  --color-inverse: #f8f5e8;
+  --color-success: #12b76a;
+  --color-warning: #f79009;
+  --color-danger: #f04438;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", serif;
+  --text-micro: 0.6875rem;
+  --tracking-mark: 0.22em;
+  --tracking-nav: 0.16em;
+  --shadow-card:
+    0 0 0 1px rgb(16 24 40 / 0.04),
+    0 1px 2px rgb(16 24 40 / 0.05),
+    0 8px 16px rgb(16 24 40 / 0.04);
+  --shadow-lift:
+    0 0 0 1px rgb(16 24 40 / 0.05),
+    0 12px 28px rgb(16 24 40 / 0.1);
+  --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" on, "cv11" on;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 22%, white);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+.img-frame {
+  outline: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+  outline-offset: -1px;
+}
