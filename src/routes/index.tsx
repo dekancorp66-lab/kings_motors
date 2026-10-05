@@ -20,7 +20,7 @@ function Home() {
     <SiteShell>
       <section className="relative isolate min-h-[34rem] overflow-hidden bg-navy md:min-h-[40rem]">
         <HeroReel />
-        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/75 to-navy/20" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/55 via-black/20 to-transparent" />
         <div className="relative mx-auto flex min-h-[34rem] max-w-6xl flex-col justify-center px-5 py-20 md:min-h-[40rem] lg:px-8">
           <p className="text-micro font-semibold tracking-mark text-inverse/70 uppercase">The Meridian Collection</p>
           <h1 className="mt-4 max-w-xl text-4xl font-extrabold tracking-tight text-inverse uppercase sm:text-5xl md:text-6xl">
